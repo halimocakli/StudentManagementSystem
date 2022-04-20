@@ -4,6 +4,7 @@
 
 struct student {
 	char s_name[30];
+	char s_surname[30];
 	char s_number[11];
 	int midterm_grade;
 	int final_grade;
@@ -25,6 +26,9 @@ Student* Create()
 
 	printf("Ogrenci adini giriniz: ");
 	scanf("%s", newStudent->s_name);
+
+	printf("Ogrenci soyadini giriniz: ");
+	scanf("%s", newStudent->s_surname);
 
 	printf("Ogrenci numarasini giriniz: ");
 	scanf("%s", newStudent->s_number);
@@ -60,6 +64,7 @@ void AddNewStudent()
 		temp->next = addedToHead;
 	}
 }
+
 void swap(Student* x, Student* y)
 {
 	double temp = x->average_grade;
@@ -110,6 +115,7 @@ void PrintStudentList()
 	while (temp != NULL)
 	{
 		printf("\nOgrenci Adi: %s", temp->s_name);
+		printf("\nOgrenci Soyadi: %s", temp->s_surname);
 		printf("\nOgrenci Numarasi: %s", temp->s_number);
 		printf("\nOgrenci Vize Notu: %d", temp->midterm_grade);
 		printf("\nOgrenci Final Notu: %d", temp->final_grade);
@@ -183,20 +189,27 @@ int main()
 
 		switch (selection)
 		{
-		case 0: printf(" Program basariyla sonlandirildi...");
-			break;
-		case 1: AddNewStudent();
-			break;
-		case 2: PrintStudentList();
-			break;
-		case 3: UpdateStudent();
-			break;
-		case 4: AverageGrade();
-			break;
-		case 5: Sort();
-			break;
-		default: printf("Yanlis tuslama yaptiniz...");
-			break;
+			case 0:
+				printf(" Program basariyla sonlandirildi...");
+				break;
+			case 1:
+				AddNewStudent();
+				break;
+			case 2:
+				PrintStudentList();
+				break;
+			case 3:
+				UpdateStudent();
+				break;
+			case 4:
+				AverageGrade();
+				break;
+			case 5:
+				Sort();
+				break;
+			default:
+				printf("Yanlis tuslama yaptiniz...");
+				break;
 		}
 	} while (selection != 0);
 
